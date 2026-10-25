@@ -15,9 +15,16 @@ Explicações objetivas, questões comentadas, simulados cronometrados e um cade
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Dados no navegador](https://img.shields.io/badge/dados-só_no_seu_navegador-0a6b7c?style=flat-square)
 
-</div>
-
 <br />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/principal-dark.png" />
+  <img src="docs/screenshots/principal-light.png" alt="Tela inicial do Aprova Ita: contagem regressiva para a prova, progresso geral e áreas de estudo" width="860" />
+</picture>
+
+<sub>Capturas com progresso fictício, só para demonstração.</sub>
+
+</div>
 
 Site de estudos para o **Concurso nº 01/2026 da Câmara Municipal de Itanhaém**
 (cargo Agente Administrativo, banca VUNESP, prova em 06/12/2026).
@@ -35,6 +42,19 @@ São 40 questões: 8 de Português, 5 de Matemática, 3 de Legislação Municipa
 | **Progresso** | Tópicos vistos e dominados, desempenho por área, pontos fracos e próximo passo sugerido. |
 | **Contagem regressiva** | Quantos dias faltam para a prova, na tela inicial. |
 | **Tema claro e escuro** | Segue o tema do aparelho e dá para trocar na hora. |
+
+## 🖼️ Telas
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/estudar.png" alt="Lista de tópicos de Língua Portuguesa com o status de cada um: dominado, visto ou não visto" /><br /><sub><b>Estudar</b>: os tópicos de cada área, com o seu status.</sub></td>
+    <td width="50%"><img src="docs/screenshots/progresso.png" alt="Painel de progresso com próximo passo sugerido e desempenho por área" /><br /><sub><b>Progresso</b>: desempenho por área e o próximo passo sugerido.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="docs/screenshots/topico.png" alt="Página de um tópico no celular, com botões para marcar como visto ou dominado" width="260" /><br /><sub><b>Tópico no celular</b>: explicação objetiva, com a barra de abas embaixo.</sub></td>
+    <td width="50%" align="center"><img src="docs/screenshots/simulado.png" alt="Simulado no celular com cronômetro, questão e alternativas" width="260" /><br /><sub><b>Simulado</b>: cronômetro, questão e alternativas ao alcance do polegar.</sub></td>
+  </tr>
+</table>
 
 ## 🔒 Seus dados
 
@@ -98,6 +118,7 @@ content/          um tópico por pasta: explicação e questões
 config/           parâmetros da prova (prova.ts) e identidade do site (site.ts)
 scripts/          validação do conteúdo e testes do motor
 public/           ícone, manifest e service worker
+docs/             capturas de tela usadas neste README
 ```
 
 <details>
@@ -121,7 +142,6 @@ Ao publicar, ajuste o endereço em `config/site.ts`: ele alimenta o `sitemap.xml
 - [ ] Conferir se houve mudança de gabarito após recursos nas provas usadas.
 - [ ] Confirmar o horário exato da prova no edital.
 - [ ] Definir o endereço público e atualizar `config/site.ts`.
-- [ ] Capturas de tela e imagem de compartilhamento (Open Graph).
 - [ ] Testes automatizados da interface (hoje só há validação do conteúdo e teste do motor).
 
 <br />
