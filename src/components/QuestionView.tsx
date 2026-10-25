@@ -73,7 +73,7 @@ export function QuestionView({
               >
                 {LETRAS[i]}
               </span>
-              <span className="pt-0.5">{alt}</span>
+              <Markdown inline className="pt-0.5">{alt}</Markdown>
             </label>
           );
         })}
