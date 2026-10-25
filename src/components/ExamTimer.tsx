@@ -15,11 +15,11 @@ export function ExamTimer({
       <span
         role="timer"
         aria-label="Tempo restante"
-        className={`font-mono text-xl font-bold tabular-nums ${alerta ? "text-erro" : ""}`}
+        className={`font-display text-2xl font-extrabold tabular-nums ${alerta ? "text-erro" : ""}`}
       >
         {formatarTempo(restante)}
       </span>
-      <button onClick={onAlternarPausa} className="rounded-lg border border-borda px-3 py-1.5 text-sm">
+      <button onClick={onAlternarPausa} className="btn btn-ghost btn-sm text-sm">
         {pausado ? "Continuar" : "Pausar"}
       </button>
     </div>

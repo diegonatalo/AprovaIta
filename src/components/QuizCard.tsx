@@ -24,8 +24,8 @@ export function QuizCard({
 
   if (questoes.length === 0) {
     return (
-      <section className="rounded-xl border border-dashed border-borda p-4">
-        <h2 className="text-lg font-bold">{titulo}</h2>
+      <section className="rounded-2xl border border-dashed border-borda p-4">
+        <h2 className="font-display text-xl font-bold">{titulo}</h2>
         <p className="mt-2 text-sm text-aviso">
           Sem questões reais da banca para este tópico ainda. Elas só entram a partir de provas
           VUNESP com fonte verificável; nada é inventado aqui.
@@ -51,7 +51,7 @@ export function QuizCard({
   return (
     <section className="space-y-4">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-lg font-bold">{titulo}</h2>
+        <h2 className="font-display text-xl font-bold">{titulo}</h2>
         {anterior && (
           <span className="text-sm text-muted">
             Último resultado: {anterior.acertos}/{anterior.total}
@@ -73,7 +73,7 @@ export function QuizCard({
           <p className="font-semibold">
             Você acertou {acertos} de {questoes.length}.
           </p>
-          <button onClick={refazer} className="rounded-lg border border-borda px-4 py-2 text-sm">
+          <button onClick={refazer} className="btn btn-ghost">
             Refazer
           </button>
         </div>
@@ -81,7 +81,7 @@ export function QuizCard({
         <button
           onClick={corrigir}
           disabled={respostas.some((r) => r === null)}
-          className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background disabled:opacity-40"
+          className="btn btn-primary"
         >
           Corrigir
         </button>

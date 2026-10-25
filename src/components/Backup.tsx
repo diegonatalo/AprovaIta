@@ -22,17 +22,17 @@ export function Backup() {
   }
 
   return (
-    <section className="space-y-3 rounded-xl border border-borda bg-card p-4">
+    <section className="space-y-3 card p-4">
       <h2 className="font-bold">Backup do progresso</h2>
       <p className="text-sm text-muted">
         O progresso fica só neste navegador. Exporte de vez em quando para não perder nada e para
         levar ao celular.
       </p>
       <div className="flex flex-wrap items-center gap-3">
-        <button onClick={exportar} className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background">
+        <button onClick={exportar} className="btn btn-primary">
           Exportar JSON
         </button>
-        <label className="cursor-pointer rounded-lg border border-borda px-4 py-2 text-sm">
+        <label className="cursor-pointer btn btn-ghost">
           Importar JSON (substitui o atual)
           <input type="file" accept="application/json" className="sr-only" onChange={(e) => importar(e.target.files?.[0])} />
         </label>

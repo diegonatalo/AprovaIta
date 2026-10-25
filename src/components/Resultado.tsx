@@ -13,8 +13,8 @@ function Barra({ acertos, total }: { acertos: number; total: number }) {
   const pct = total ? (acertos / total) * 100 : 0;
   return (
     <div className="flex items-center gap-2">
-      <div className="h-2 flex-1 overflow-hidden rounded-full bg-borda" aria-hidden>
-        <div className="h-full bg-acento" style={{ width: `${pct}%` }} />
+      <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-borda" aria-hidden>
+        <div className="h-full rounded-full bg-acento" style={{ width: `${pct}%` }} />
       </div>
       <span className="w-14 text-right text-sm tabular-nums">
         {acertos}/{total}
@@ -52,14 +52,14 @@ export function Resultado({
 
   return (
     <div className="space-y-6">
-      <button onClick={onVoltar} className="text-sm text-acento">
+      <button onClick={onVoltar} className="text-sm font-medium text-acento">
         ← Voltar aos simulados
       </button>
-      <header className="space-y-2 rounded-xl border border-borda bg-card p-4">
-        <h1 className="text-2xl font-bold">Resultado — Simulado {tentativa.simulado}</h1>
-        <p className="text-4xl font-bold tabular-nums">{formatarNota(c.nota)}</p>
+      <header className="space-y-2 card p-4">
+        <h1 className="font-display text-xl font-bold text-muted">Resultado — Simulado {tentativa.simulado}</h1>
+        <p className="font-display text-6xl font-extrabold tabular-nums text-acento">{formatarNota(c.nota)}</p>
         {c.habilitado === null ? (
-          <p className="rounded-lg border border-aviso p-3 text-sm text-aviso">
+          <p className="rounded-xl border border-aviso bg-aviso/10 p-3 text-sm text-aviso">
             Simulado reduzido ({c.total} questões, banco ainda incompleto). A nota é acertos × 100 ÷ {c.total}
             e <strong>não é comparável</strong> com o corte da prova ({PROVA.notaCorte} pontos = 20 de 40).
           </p>
@@ -111,7 +111,7 @@ export function Resultado({
               key={v}
               onClick={() => setFiltro(v)}
               aria-pressed={filtro === v}
-              className={`rounded-lg border px-3 py-1.5 text-sm ${filtro === v ? "border-acento bg-acento/10 font-semibold" : "border-borda"}`}
+              className="chip"
             >
               {r}
             </button>

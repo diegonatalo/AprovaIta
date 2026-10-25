@@ -77,27 +77,27 @@ export function SimuladoApp({
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="text-2xl font-bold">Simulados</h1>
+        <h1 className="font-display text-3xl font-extrabold">Simulados</h1>
         <p className="text-sm text-muted">
           40 questões (8 Português, 5 Matemática, 3 Legislação, 24 Específicos), {PROVA.duracaoMinutos / 60}h. Nota = acertos × 100 ÷ 40; habilitado com nota ≥ {PROVA.notaCorte}.
         </p>
       </header>
 
       {andamento && (
-        <section className="space-y-3 rounded-xl border border-acento p-4">
+        <section className="space-y-3 rounded-2xl border-2 border-acento bg-acento-suave p-5">
           <h2 className="font-bold">Prova em andamento</h2>
           <p className="text-sm text-muted">
             Simulado {andamento.simulado} · restam {formatarTempo(andamento.restanteSegundos)} · {Object.values(andamento.respostas).filter((r) => r != null).length}/{andamento.ordem.length} respondidas
           </p>
           <div className="flex flex-wrap gap-2">
-            <button onClick={() => setTela({ tipo: "prova", inicial: andamento })} className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background">
+            <button onClick={() => setTela({ tipo: "prova", inicial: andamento })} className="btn btn-primary">
               Retomar
             </button>
             <button
               onClick={() => {
                 if (window.confirm("Descartar a prova em andamento? Ela não será corrigida.")) limparAndamento();
               }}
-              className="rounded-lg border border-borda px-4 py-2 text-sm"
+              className="btn btn-ghost"
             >
               Descartar
             </button>
@@ -111,7 +111,7 @@ export function SimuladoApp({
           const disponiveis = questoes.filter((q) => q.origem === ORIGEM[sim]).length;
           const reduzido = montarSimulado(questoes, ORIGEM[sim], { parcial: true }).length;
           return (
-            <section key={sim} className="space-y-3 rounded-xl border border-borda bg-card p-4">
+            <section key={sim} className="space-y-3 card p-4">
               <h2 className="font-bold">{TITULO[sim]}</h2>
               <p className="text-sm text-muted">{disponiveis} questões no banco.</p>
               {faltas.length > 0 && (
@@ -131,7 +131,7 @@ export function SimuladoApp({
               <button
                 onClick={() => iniciar(sim)}
                 disabled={reduzido === 0 || !!andamento}
-                className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background disabled:opacity-40"
+                className="btn btn-primary"
               >
                 {faltas.length === 0
                   ? "Iniciar (40 questões)"
@@ -148,17 +148,17 @@ export function SimuladoApp({
       </div>
 
       <section className="space-y-3">
-        <h2 className="text-lg font-bold">Histórico</h2>
+        <h2 className="font-display text-xl font-bold">Histórico</h2>
         {tentativas.length === 0 ? (
           <p className="text-sm text-muted">Nenhuma tentativa ainda.</p>
         ) : (
           <>
-            <div role="img" aria-label="Evolução das notas" className="flex h-24 items-end gap-1 rounded-xl border border-borda bg-card p-3">
+            <div role="img" aria-label="Evolução das notas" className="flex h-28 items-end gap-1 card p-3">
               {[...tentativas].reverse().map((t) => (
                 <div
                   key={t.id}
                   title={`${formatarData(t.inicio)}: ${formatarNota(t.nota)}${t.parcial ? " (reduzido)" : ""}`}
-                  className={`min-w-2 flex-1 rounded-t ${t.parcial ? "bg-acento/40" : "bg-acento"}`}
+                  className={`min-w-2 flex-1 rounded-t-md ${t.parcial ? "bg-acento/40" : "bg-acento"}`}
                   style={{ height: `${Math.max(t.nota, 2)}%` }}
                 />
               ))}
@@ -166,14 +166,14 @@ export function SimuladoApp({
             <p className="text-xs text-muted">Barras claras: simulados reduzidos (nota sobre menos de 40 questões).</p>
             <ul className="space-y-2">
               {tentativas.map((t) => (
-                <li key={t.id} className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-borda bg-card p-3 text-sm">
+                <li key={t.id} className="flex flex-wrap items-center justify-between gap-2 card p-3 text-sm">
                   <span>
                     <strong>{formatarData(t.inicio)}</strong> · Simulado {t.simulado} · {t.acertos}/{t.total}
                     {t.parcial && " (reduzido)"} · {formatarTempo(t.segundos)}
                   </span>
                   <span className="flex items-center gap-3">
                     <strong className="tabular-nums">{formatarNota(t.nota)}</strong>
-                    <button onClick={() => setTela({ tipo: "resultado", tentativa: t })} className="rounded-lg border border-borda px-3 py-1.5">
+                    <button onClick={() => setTela({ tipo: "resultado", tentativa: t })} className="btn btn-ghost btn-sm">
                       Ver
                     </button>
                   </span>

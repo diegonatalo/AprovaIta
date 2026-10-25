@@ -1,57 +1,65 @@
 import Link from "next/link";
-import { NOMES_AREA, PROVA } from "../../config/prova";
+import { PROVA } from "../../config/prova";
 import { SITE } from "../../config/site";
-import { AREAS, listarTopicos } from "@/lib/content";
+import { listarTopicos } from "@/lib/content";
 import { Countdown, ProgressoGeral } from "@/components/HomeWidgets";
+import { CartoesArea } from "@/components/CartoesArea";
+import { Icone } from "@/components/Icones";
 
 export default function Home() {
   const topicos = listarTopicos();
   return (
-    <div className="space-y-8">
-      <section>
-        <p className="text-sm font-semibold text-acento">{SITE.nome}</p>
-        <h1 className="text-2xl font-bold">Agente Administrativo — Câmara de Itanhaém</h1>
-        <p className="text-sm text-muted">
-          Concurso nº 01/2026 · {PROVA.banca} · prova em 06/12/2026
-        </p>
+    <div className="space-y-10">
+      <section className="relative overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[var(--mar-1)] to-[var(--mar-2)] p-6 text-white shadow-[var(--sombra-alta)] sm:p-9">
+        <svg aria-hidden="true" viewBox="0 0 600 200" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-28 w-full opacity-20">
+          <path d="M0 120c60-40 120-40 200 0s140 40 200 0 140-40 200 0v80H0z" fill="#fff" />
+        </svg>
+        <span aria-hidden="true" className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-sol opacity-90 sm:h-48 sm:w-48" />
+        <div className="relative space-y-6">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/70">
+              {SITE.nome} · Concurso nº 01/2026
+            </p>
+            <h1 className="mt-2 max-w-md font-display text-3xl font-extrabold leading-[1.1] sm:text-4xl">
+              Agente Administrativo da Câmara de Itanhaém
+            </h1>
+          </div>
+          <div>
+            <p className="mb-1 text-sm font-medium text-white/75">Faltam para a prova de 06/12/2026</p>
+            <Countdown alvoISO={PROVA.dataProva} />
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            <Link href="/simulado/" className="btn bg-white text-[#0c3d52] hover:bg-white/90">
+              <Icone nome="prova" className="h-[1.1rem] w-[1.1rem]" />
+              Fazer simulado
+            </Link>
+            <Link href="/revisao/" className="btn border border-white/35 text-white hover:bg-white/10">
+              Meus erros
+            </Link>
+          </div>
+        </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-xl border border-borda bg-card p-4">
-          <h2 className="mb-1 text-sm font-semibold text-muted">Faltam para a prova</h2>
-          <Countdown alvoISO={PROVA.dataProva} />
-        </div>
-        <div className="rounded-xl border border-borda bg-card p-4">
-          <h2 className="mb-2 text-sm font-semibold text-muted">Progresso geral</h2>
+      <section className="grid gap-3 sm:grid-cols-2">
+        <div className="card p-5">
+          <h2 className="eyebrow mb-3">Progresso geral</h2>
           <ProgressoGeral chaves={topicos.map((t) => `${t.area}/${t.slug}`)} />
         </div>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-lg font-bold">Áreas</h2>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {AREAS.map((a) => (
-            <Link
-              key={a}
-              href={`/conteudo/${a}/`}
-              className="rounded-xl border border-borda bg-card p-4 hover:border-acento"
-            >
-              <p className="font-semibold">{NOMES_AREA[a]}</p>
-              <p className="text-sm text-muted">
-                {PROVA.distribuicao[a]} questões · {topicos.filter((t) => t.area === a).length} tópico(s) escritos
-              </p>
-            </Link>
-          ))}
+        <div className="card flex flex-col justify-between gap-3 p-5">
+          <h2 className="eyebrow">A prova</h2>
+          <p className="text-sm text-muted">
+            <strong className="text-foreground">{PROVA.totalQuestoes} questões</strong> · {PROVA.banca} ·{" "}
+            {PROVA.duracaoMinutos / 60}h. Habilitado com nota ≥ {PROVA.notaCorte} (20 acertos).
+          </p>
+          <Link href="/progresso/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-acento">
+            Ver meu desempenho <Icone nome="seta" className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
-      <section className="flex flex-wrap gap-3">
-        <Link href="/simulado/" className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background">
-          Simulados
-        </Link>
-        <Link href="/revisao/" className="rounded-lg border border-borda px-4 py-2 text-sm">
-          Caderno de erros
-        </Link>
+      <section>
+        <h2 className="mb-4 font-display text-xl font-bold">Áreas de estudo</h2>
+        <CartoesArea />
       </section>
     </div>
   );

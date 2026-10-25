@@ -10,9 +10,7 @@ export function StatusButtons({ chave }: { chave: string }) {
     <button
       onClick={() => definirStatus(chave, status === alvo ? "nao-visto" : alvo)}
       aria-pressed={status === alvo}
-      className={`rounded-lg border px-3 py-2 text-sm ${
-        status === alvo ? "border-acento bg-acento/10 font-semibold" : "border-borda"
-      }`}
+      className={`btn btn-sm ${status === alvo ? "border border-acento bg-acento-suave text-acento" : "btn-ghost"}`}
     >
       {rotulo}
     </button>

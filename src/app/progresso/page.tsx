@@ -11,7 +11,7 @@ export default function Progresso() {
   }));
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Progresso</h1>
+      <h1 className="font-display text-3xl font-extrabold">Progresso</h1>
       <PainelProgresso topicos={topicos} />
       <Backup />
     </div>

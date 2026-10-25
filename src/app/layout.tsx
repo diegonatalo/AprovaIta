@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { RegistrarSW } from "@/components/RegistrarSW";
 import { SITE } from "../../config/site";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const corpo = Figtree({ variable: "--font-corpo", subsets: ["latin"] });
+const titulo = Bricolage_Grotesque({ variable: "--font-titulo", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -16,14 +17,17 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg" },
 };
 
-export const viewport: Viewport = { themeColor: "#1d4ed8" };
+export const viewport: Viewport = { themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f2eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#06151d" },
+  ] };
 
 // Aplica o tema salvo antes da pintura para evitar flash.
 const SCRIPT_TEMA = `try{var t=localStorage.getItem('tema');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={geistSans.variable} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${corpo.variable} ${titulo.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
       </head>
@@ -33,7 +37,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <RegistrarSW />
         <Nav />
-        <main id="conteudo" className="mx-auto max-w-4xl px-4 py-6">{children}</main>
+        <div className="lg:pl-64">
+          <main id="conteudo" className="entrada pb-barra mx-auto max-w-4xl px-4 pt-6 sm:px-6 lg:max-w-5xl lg:px-10 lg:pt-10">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

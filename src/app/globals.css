@@ -2,28 +2,48 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Identidade "Aprova Ita": mar de Itanhaém (verde-petróleo profundo) + areia + sol coral.
+  Os nomes dos tokens (acento, borda, card…) são usados por todos os componentes.
+*/
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --muted: #57534e;
-  --card: #ffffff;
-  --borda: #e7e5e4;
-  --acento: #1d4ed8;
-  --acerto: #15803d;
-  --erro: #b91c1c;
+  --background: #f5f2eb;
+  --foreground: #0c2431;
+  --muted: #566772;
+  --card: #fffdf9;
+  --card-2: #efeae0;
+  --borda: #e1dbcd;
+  --acento: #0a6b7c;
+  --acento-forte: #07505e;
+  --acento-suave: #d7ecee;
+  --sol: #e9663f;
+  --acerto: #12803f;
+  --erro: #c0233f;
   --aviso: #b45309;
+  --sombra: 0 1px 2px rgb(12 36 49 / 0.05), 0 8px 24px -12px rgb(12 36 49 / 0.14);
+  --sombra-alta: 0 2px 4px rgb(12 36 49 / 0.06), 0 18px 40px -16px rgb(12 36 49 / 0.28);
+  --mar-1: #0a6b7c;
+  --mar-2: #0c3d52;
 }
 
 .dark {
-  --background: #0c0a09;
-  --foreground: #e7e5e4;
-  --muted: #a8a29e;
-  --card: #1c1917;
-  --borda: #292524;
-  --acento: #60a5fa;
+  --background: #06151d;
+  --foreground: #e6eef0;
+  --muted: #8da3ad;
+  --card: #0c2230;
+  --card-2: #102b3b;
+  --borda: #1a3544;
+  --acento: #4cd0c4;
+  --acento-forte: #7fe3d9;
+  --acento-suave: #0f3a45;
+  --sol: #ff8a63;
   --acerto: #4ade80;
-  --erro: #f87171;
+  --erro: #fb7a93;
   --aviso: #fbbf24;
+  --sombra: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.5);
+  --sombra-alta: 0 2px 4px rgb(0 0 0 / 0.35), 0 18px 40px -16px rgb(0 0 0 / 0.7);
+  --mar-1: #0e6f80;
+  --mar-2: #071f2c;
 }
 
 @theme inline {
@@ -31,12 +51,25 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-card: var(--card);
+  --color-card-2: var(--card-2);
   --color-borda: var(--borda);
   --color-acento: var(--acento);
+  --color-acento-forte: var(--acento-forte);
+  --color-acento-suave: var(--acento-suave);
+  --color-sol: var(--sol);
   --color-acerto: var(--acerto);
   --color-erro: var(--erro);
   --color-aviso: var(--aviso);
-  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-sans: var(--font-corpo), system-ui, sans-serif;
+  --font-display: var(--font-titulo), var(--font-corpo), system-ui, sans-serif;
+}
+
+html {
+  color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+}
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -44,6 +77,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 :focus-visible {
@@ -51,24 +93,238 @@ body {
   outline-offset: 2px;
 }
 
-/* Tipografia do conteúdo de estudo */
-.prose-estudo { max-width: 68ch; }
-.prose-estudo h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 .75rem; }
-.prose-estudo h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 .5rem; }
-.prose-estudo p { margin: .75rem 0; }
-.prose-estudo ul { list-style: disc; padding-left: 1.4rem; margin: .75rem 0; }
-.prose-estudo ol { list-style: decimal; padding-left: 1.4rem; margin: .75rem 0; }
-.prose-estudo li { margin: .25rem 0; }
-.prose-estudo strong { font-weight: 650; }
-.prose-estudo blockquote {
-  border-left: 4px solid var(--aviso);
-  background: var(--card);
-  padding: .5rem 1rem;
-  margin: 1rem 0;
-  border-radius: 0 .5rem .5rem 0;
-  color: var(--muted);
+::selection {
+  background: var(--acento-suave);
 }
-.prose-estudo .tabela { overflow-x: auto; margin: 1rem 0; }
-.prose-estudo table { border-collapse: collapse; font-size: .9rem; min-width: 100%; }
-.prose-estudo th, .prose-estudo td { border: 1px solid var(--borda); padding: .4rem .6rem; text-align: left; vertical-align: top; }
-.prose-estudo th { background: var(--card); }
+
+/* ---------- Componentes utilitários ---------- */
+@layer components {
+  .card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 1.1rem;
+    box-shadow: var(--sombra);
+  }
+  .card-link {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card-link:hover {
+    border-color: var(--acento);
+    box-shadow: var(--sombra-alta);
+    transform: translateY(-2px);
+  }
+  .card-link:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: transform 0.12s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+  .btn:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--acento);
+    color: var(--background);
+    box-shadow: 0 6px 16px -8px var(--acento);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--acento-forte);
+  }
+  .btn-ghost {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    color: var(--foreground);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    border-color: var(--acento);
+    color: var(--acento);
+  }
+  .btn-sm {
+    min-height: 2.25rem;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--acento);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--borda);
+    background: var(--card);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .chip[aria-pressed="true"] {
+    background: var(--acento);
+    border-color: var(--acento);
+    color: var(--background);
+    font-weight: 600;
+  }
+
+  .campo {
+    min-height: 2.75rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--borda);
+    background: var(--card);
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Entrada suave das páginas */
+@keyframes subir {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: none;
+  }
+}
+.entrada {
+  animation: subir 0.35s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .entrada {
+    animation: none;
+  }
+  .card-link,
+  .btn {
+    transition: none;
+  }
+}
+
+/* Barra inferior respeita a área segura (iPhone) */
+.pb-barra {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+@media (min-width: 1024px) {
+  .pb-barra {
+    padding-bottom: 3rem;
+  }
+}
+
+/* ---------- Tipografia do conteúdo de estudo ---------- */
+.prose-estudo {
+  max-width: 68ch;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+.prose-estudo h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 2.25rem 0 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--borda);
+}
+.prose-estudo h2:first-child {
+  border-top: 0;
+  margin-top: 0;
+}
+.prose-estudo h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 650;
+  margin: 1.6rem 0 0.5rem;
+  color: var(--acento);
+}
+.prose-estudo p {
+  margin: 0.8rem 0;
+}
+.prose-estudo ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin: 0.8rem 0;
+}
+.prose-estudo ol {
+  list-style: decimal;
+  padding-left: 1.4rem;
+  margin: 0.8rem 0;
+}
+.prose-estudo li {
+  margin: 0.3rem 0;
+}
+.prose-estudo li::marker {
+  color: var(--acento);
+}
+.prose-estudo strong {
+  font-weight: 650;
+}
+.prose-estudo a {
+  color: var(--acento);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-estudo code {
+  background: var(--card-2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.4rem;
+  font-size: 0.9em;
+}
+.prose-estudo blockquote {
+  border-left: 4px solid var(--sol);
+  background: var(--card);
+  padding: 0.7rem 1rem;
+  margin: 1.2rem 0;
+  border-radius: 0 0.9rem 0.9rem 0;
+  color: var(--muted);
+  box-shadow: var(--sombra);
+}
+.prose-estudo blockquote p {
+  margin: 0.3rem 0;
+}
+.prose-estudo .tabela {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  border: 1px solid var(--borda);
+  border-radius: 0.9rem;
+  background: var(--card);
+}
+.prose-estudo table {
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 100%;
+}
+.prose-estudo th,
+.prose-estudo td {
+  border-bottom: 1px solid var(--borda);
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+.prose-estudo tr:last-child td {
+  border-bottom: 0;
+}
+.prose-estudo th {
+  background: var(--card-2);
+  font-weight: 650;
+  white-space: nowrap;
+}

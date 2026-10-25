@@ -26,9 +26,9 @@ function Barra({ valor, rotulo }: { valor: number; rotulo: string }) {
       aria-valuenow={valor}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="h-2 w-full overflow-hidden rounded-full bg-borda"
+      className="h-2.5 w-full overflow-hidden rounded-full bg-borda"
     >
-      <div className="h-full bg-acento" style={{ width: `${valor}%` }} />
+      <div className="h-full rounded-full bg-acento" style={{ width: `${valor}%` }} />
     </div>
   );
 }
@@ -72,7 +72,7 @@ export function PainelProgresso({ topicos }: { topicos: TopicoResumo[] }) {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-xl border border-borda bg-card p-4">
+      <section className="card p-4">
         <h2 className="mb-2 font-bold">Próximo passo</h2>
         {sugestao ? (
           <p className="text-sm">
@@ -95,7 +95,7 @@ export function PainelProgresso({ topicos }: { topicos: TopicoResumo[] }) {
       <section className="space-y-3">
         <h2 className="font-bold">Por área</h2>
         {porArea.map((a) => (
-          <div key={a.area} className="rounded-xl border border-borda bg-card p-4">
+          <div key={a.area} className="card p-4">
             <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
               <p className="font-semibold">{NOMES_AREA[a.area]}</p>
               <p className="text-sm text-muted">
@@ -108,7 +108,7 @@ export function PainelProgresso({ topicos }: { topicos: TopicoResumo[] }) {
         ))}
       </section>
 
-      <section className="rounded-xl border border-borda bg-card p-4">
+      <section className="card p-4">
         <h2 className="mb-2 font-bold">Tópicos mais fracos</h2>
         {fracos.length ? (
           <ul className="space-y-1 text-sm">
@@ -124,7 +124,7 @@ export function PainelProgresso({ topicos }: { topicos: TopicoResumo[] }) {
         )}
       </section>
 
-      <section className="rounded-xl border border-borda bg-card p-4">
+      <section className="card p-4">
         <h2 className="mb-2 font-bold">Simulados</h2>
         {ultimas.length ? (
           <>
@@ -150,7 +150,7 @@ export function PainelProgresso({ topicos }: { topicos: TopicoResumo[] }) {
         )}
       </section>
 
-      <p className="rounded-xl border border-dashed border-borda p-4 text-xs text-muted">
+      <p className="rounded-2xl border border-dashed border-borda p-4 text-xs text-muted">
         <strong>Sobre os gabaritos:</strong> as questões da banca usam o gabarito preliminar divulgado pela VUNESP
         (edital de divulgação). Alterações pós-recurso não foram conferidas. A divisão dos 24 Específicos entre as
         subáreas nos simulados é uma suposição, pois o edital não a informa.

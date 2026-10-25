@@ -108,27 +108,27 @@ export function ProvaRunner({
 
   return (
     <div className="space-y-4">
-      <div className="sticky top-[53px] z-10 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-borda bg-card p-3">
+      <div className="sticky top-14 z-20 flex flex-wrap items-center justify-between gap-2 card p-3 lg:top-4">
         <ExamTimer restante={restante} pausado={pausado} onAlternarPausa={() => setPausado((p) => !p)} />
         <span className="text-sm text-muted">
           Simulado {inicial.simulado} · {questoes.length - emBranco}/{questoes.length} respondidas
         </span>
-        <button onClick={() => setConfirmando(true)} className="rounded-lg bg-acento px-3 py-1.5 text-sm font-semibold text-background">
+        <button onClick={() => setConfirmando(true)} className="btn btn-primary btn-sm">
           Finalizar
         </button>
       </div>
 
       {confirmando && (
-        <div role="alertdialog" aria-label="Confirmar finalização" className="space-y-3 rounded-xl border border-aviso p-4">
+        <div role="alertdialog" aria-label="Confirmar finalização" className="space-y-3 rounded-2xl border border-aviso bg-card p-4">
           <p className="font-semibold">
             Finalizar o simulado?{" "}
             {emBranco > 0 ? `${emBranco} questão(ões) em branco.` : "Todas respondidas."}
           </p>
           <div className="flex gap-2">
-            <button onClick={finalizar} className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background">
+            <button onClick={finalizar} className="btn btn-primary">
               Sim, finalizar
             </button>
-            <button onClick={() => setConfirmando(false)} className="rounded-lg border border-borda px-4 py-2 text-sm">
+            <button onClick={() => setConfirmando(false)} className="btn btn-ghost">
               Voltar à prova
             </button>
           </div>
@@ -136,9 +136,9 @@ export function ProvaRunner({
       )}
 
       {pausado ? (
-        <div className="rounded-xl border border-dashed border-borda p-8 text-center">
+        <div className="rounded-2xl border border-dashed border-borda p-8 text-center">
           <p className="mb-3 font-semibold">Prova pausada</p>
-          <button onClick={() => setPausado(false)} className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background">
+          <button onClick={() => setPausado(false)} className="btn btn-primary">
             Continuar
           </button>
         </div>
@@ -156,28 +156,28 @@ export function ProvaRunner({
               <button
                 onClick={() => setAtual((a) => Math.max(0, a - 1))}
                 disabled={atual === 0}
-                className="rounded-lg border border-borda px-4 py-2 text-sm disabled:opacity-40"
+                className="btn btn-ghost"
               >
                 Anterior
               </button>
               <button
                 onClick={() => setAtual((a) => Math.min(questoes.length - 1, a + 1))}
                 disabled={atual === questoes.length - 1}
-                className="rounded-lg border border-borda px-4 py-2 text-sm disabled:opacity-40"
+                className="btn btn-ghost"
               >
                 Próxima
               </button>
               <button
                 onClick={() => setMarcadas((m) => (marcada ? m.filter((x) => x !== q.id) : [...m, q.id]))}
                 aria-pressed={marcada}
-                className={`rounded-lg border px-4 py-2 text-sm ${marcada ? "border-aviso text-aviso" : "border-borda"}`}
+                className={`btn ${marcada ? "border border-aviso bg-aviso/10 text-aviso" : "btn-ghost"}`}
               >
                 {marcada ? "Marcada para revisar" : "Revisar depois"}
               </button>
               {respostas[q.id] != null && (
                 <button
                   onClick={() => setRespostas((r) => ({ ...r, [q.id]: null }))}
-                  className="rounded-lg border border-borda px-4 py-2 text-sm text-muted"
+                  className="btn btn-ghost text-muted"
                 >
                   Limpar resposta
                 </button>
@@ -185,15 +185,15 @@ export function ProvaRunner({
             </div>
           </div>
 
-          <aside className="lg:sticky lg:top-36 lg:self-start">
+          <aside className="lg:sticky lg:top-28 lg:self-start">
             <button
               onClick={() => setFolhaAberta((v) => !v)}
               aria-expanded={folhaAberta}
-              className="mb-2 w-full rounded-lg border border-borda px-3 py-2 text-left text-sm font-semibold lg:hidden"
+              className="mb-2 w-full btn btn-ghost btn-sm text-left text-sm font-semibold lg:hidden"
             >
               Folha de respostas {folhaAberta ? "▲" : "▼"}
             </button>
-            <div className={`${folhaAberta ? "block" : "hidden"} rounded-xl border border-borda bg-card p-3 lg:block`}>
+            <div className={`${folhaAberta ? "block" : "hidden"} card p-3 lg:block`}>
               <h2 className="mb-2 hidden text-sm font-semibold lg:block">Folha de respostas</h2>
               <AnswerSheet
                 questoes={questoes}

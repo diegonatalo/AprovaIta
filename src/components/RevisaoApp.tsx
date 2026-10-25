@@ -54,10 +54,10 @@ export function RevisaoApp({
     const acertos = praticando.filter((q, i) => respostas[i] === q.gabarito).length;
     return (
       <div className="space-y-4">
-        <button onClick={() => setPraticando(null)} className="text-sm text-acento">
+        <button onClick={() => setPraticando(null)} className="text-sm font-medium text-acento">
           ← Voltar ao caderno
         </button>
-        <h1 className="text-2xl font-bold">Refazer erros</h1>
+        <h1 className="font-display text-3xl font-extrabold">Refazer erros</h1>
         {praticando.map((q, i) => (
           <QuestionView
             key={q.id}
@@ -76,7 +76,7 @@ export function RevisaoApp({
           <button
             onClick={corrigirPratica}
             disabled={respostas.some((r) => r === null)}
-            className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background disabled:opacity-40"
+            className="btn btn-primary"
           >
             Corrigir
           </button>
@@ -88,7 +88,7 @@ export function RevisaoApp({
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-2xl font-bold">Caderno de erros</h1>
+        <h1 className="font-display text-3xl font-extrabold">Caderno de erros</h1>
         <p className="text-sm text-muted">
           {doCaderno.length} questão(ões) errada(s). Acertar uma questão ao refazê-la a tira do caderno.
         </p>
@@ -103,7 +103,7 @@ export function RevisaoApp({
               setArea(e.target.value as Area | "todas");
               setTopico("todos");
             }}
-            className="rounded-lg border border-borda bg-card px-3 py-2"
+            className="campo"
           >
             <option value="todas">Todas</option>
             {(Object.keys(NOMES_AREA) as Area[]).map((a) => (
@@ -118,7 +118,7 @@ export function RevisaoApp({
           <select
             value={topico}
             onChange={(e) => setTopico(e.target.value)}
-            className="max-w-xs rounded-lg border border-borda bg-card px-3 py-2"
+            className="campo max-w-xs"
           >
             <option value="todos">Todos</option>
             {topicosDisponiveis.map((k) => (
@@ -131,14 +131,14 @@ export function RevisaoApp({
         <button
           onClick={comecar}
           disabled={filtradas.length === 0}
-          className="self-end rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background disabled:opacity-40"
+          className="self-end btn btn-primary"
         >
           Refazer só os erros ({filtradas.length})
         </button>
       </div>
 
       {filtradas.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-borda p-4 text-sm text-muted">
+        <p className="rounded-2xl border border-dashed border-borda p-4 text-sm text-muted">
           Nada no caderno para este filtro.
         </p>
       ) : (

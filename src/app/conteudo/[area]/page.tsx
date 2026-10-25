@@ -18,25 +18,28 @@ export default async function PaginaArea({ params }: { params: Promise<{ area: s
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-2xl font-bold">{NOMES_AREA[a]}</h1>
-        <p className="text-sm text-muted">{PROVA.distribuicao[a]} questões na prova</p>
+        <Link href="/conteudo/" className="mb-3 inline-flex items-center gap-1 text-sm font-medium text-acento">
+          <span aria-hidden>←</span> Estudar
+        </Link>
+        <h1 className="font-display text-3xl font-extrabold">{NOMES_AREA[a]}</h1>
+        <p className="text-muted">{PROVA.distribuicao[a]} questões na prova · {topicos.length} tópicos</p>
       </header>
       {topicos.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-borda p-4 text-sm text-muted">
+        <p className="rounded-2xl border border-dashed border-borda p-4 text-sm text-muted">
           Nenhum tópico escrito nesta área ainda.
         </p>
       ) : (
-        <ul className="space-y-3">
+        <ul className="space-y-2.5">
           {topicos.map((t) => (
             <li key={t.slug}>
               <Link
                 href={`/conteudo/${t.area}/${t.slug}/`}
-                className="flex items-start justify-between gap-3 rounded-xl border border-borda bg-card p-4 hover:border-acento"
+                className="card card-link flex items-start justify-between gap-3 p-4"
               >
                 <span>
-                  {t.subarea && <span className="block text-xs text-muted">{NOMES_SUBAREA[t.subarea]}</span>}
-                  <span className="font-semibold">{t.titulo}</span>
-                  <span className="block text-sm text-muted">{t.resumo}</span>
+                  {t.subarea && <span className="eyebrow block">{NOMES_SUBAREA[t.subarea]}</span>}
+                  <span className="font-display text-[1.05rem] font-bold leading-snug">{t.titulo}</span>
+                  <span className="mt-0.5 block text-sm text-muted">{t.resumo}</span>
                   {t.statusFonte === "PENDENTE_FONTE" && (
                     <span className="text-xs font-semibold text-erro">PENDENTE_FONTE</span>
                   )}

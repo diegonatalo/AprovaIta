@@ -28,18 +28,18 @@ export function AnswerSheet({
               onClick={() => onIr(i)}
               aria-label={`Questão ${i + 1}${respondida ? ", respondida" : ", em branco"}${marcada ? ", marcada para revisar" : ""}`}
               aria-current={i === atual ? "true" : undefined}
-              className={`relative h-9 rounded-md border text-sm font-medium ${
-                respondida ? "border-acento bg-acento/15" : "border-borda"
+              className={`relative h-10 rounded-xl border text-sm font-semibold transition ${
+                respondida ? "border-acento bg-acento-suave text-acento" : "border-borda"
               } ${i === atual ? "ring-2 ring-acento" : ""}`}
             >
               {i + 1}
-              {marcada && <span aria-hidden className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-aviso" />}
+              {marcada && <span aria-hidden className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-sol" />}
             </button>
           );
         })}
       </div>
       <p className="mt-3 text-xs text-muted">
-        Azul: respondida · ponto laranja: revisar depois · sem cor: em branco
+        Verde-petróleo: respondida · ponto coral: revisar depois · sem cor: em branco
       </p>
     </div>
   );

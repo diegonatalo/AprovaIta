@@ -31,7 +31,7 @@ export function ProgressRing({
           strokeDashoffset={c * (1 - v / 100)}
         />
       </svg>
-      <span className="absolute text-sm font-semibold">{Math.round(v)}%</span>
+      <span className="absolute font-display text-sm font-bold">{Math.round(v)}%</span>
     </div>
   );
 }

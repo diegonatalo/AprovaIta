@@ -7,6 +7,7 @@ export const dynamic = "force-static"; // necessário com output: "export"
 export default function sitemap(): MetadataRoute.Sitemap {
   const rotas = [
     "/",
+    "/conteudo/",
     ...AREAS.map((a) => `/conteudo/${a}/`),
     ...listarTopicos().map((t) => `/conteudo/${t.area}/${t.slug}/`),
     "/simulado/",
