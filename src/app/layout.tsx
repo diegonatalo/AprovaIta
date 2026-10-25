@@ -15,6 +15,19 @@ export const metadata: Metadata = {
   applicationName: SITE.nome,
   manifest: "/manifest.webmanifest",
   icons: { icon: "/icon.svg" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: SITE.nome,
+    url: "/",
+    title: `${SITE.nome} — Agente Administrativo, Câmara de Itanhaém`,
+    description: SITE.descricao,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.nome} — Agente Administrativo, Câmara de Itanhaém`,
+    description: SITE.descricao,
+  },
 };
 
 export const viewport: Viewport = { themeColor: [
