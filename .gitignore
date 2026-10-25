@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# materiais de estudo e provas de terceiros (direitos autorais); ficam só na máquina local
+/fontes/
+
+# configuração local do Claude Code
+/.claude/

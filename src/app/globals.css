@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --muted: #57534e;
+  --card: #ffffff;
+  --borda: #e7e5e4;
+  --acento: #1d4ed8;
+  --acerto: #15803d;
+  --erro: #b91c1c;
+  --aviso: #b45309;
+}
+
+.dark {
+  --background: #0c0a09;
+  --foreground: #e7e5e4;
+  --muted: #a8a29e;
+  --card: #1c1917;
+  --borda: #292524;
+  --acento: #60a5fa;
+  --acerto: #4ade80;
+  --erro: #f87171;
+  --aviso: #fbbf24;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-borda: var(--borda);
+  --color-acento: var(--acento);
+  --color-acerto: var(--acerto);
+  --color-erro: var(--erro);
+  --color-aviso: var(--aviso);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
 }
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* Tipografia do conteúdo de estudo */
+.prose-estudo { max-width: 68ch; }
+.prose-estudo h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 .75rem; }
+.prose-estudo h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 .5rem; }
+.prose-estudo p { margin: .75rem 0; }
+.prose-estudo ul { list-style: disc; padding-left: 1.4rem; margin: .75rem 0; }
+.prose-estudo ol { list-style: decimal; padding-left: 1.4rem; margin: .75rem 0; }
+.prose-estudo li { margin: .25rem 0; }
+.prose-estudo strong { font-weight: 650; }
+.prose-estudo blockquote {
+  border-left: 4px solid var(--aviso);
+  background: var(--card);
+  padding: .5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 .5rem .5rem 0;
+  color: var(--muted);
+}
+.prose-estudo .tabela { overflow-x: auto; margin: 1rem 0; }
+.prose-estudo table { border-collapse: collapse; font-size: .9rem; min-width: 100%; }
+.prose-estudo th, .prose-estudo td { border: 1px solid var(--borda); padding: .4rem .6rem; text-align: left; vertical-align: top; }
+.prose-estudo th { background: var(--card); }

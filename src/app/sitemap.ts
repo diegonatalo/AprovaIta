@@ -1,0 +1,17 @@
+import type { MetadataRoute } from "next";
+import { SITE } from "../../config/site";
+import { AREAS, listarTopicos } from "@/lib/content";
+
+export const dynamic = "force-static"; // necessário com output: "export"
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const rotas = [
+    "/",
+    ...AREAS.map((a) => `/conteudo/${a}/`),
+    ...listarTopicos().map((t) => `/conteudo/${t.area}/${t.slug}/`),
+    "/simulado/",
+    "/revisao/",
+    "/progresso/",
+  ];
+  return rotas.map((r) => ({ url: `${SITE.url}${r}` }));
+}

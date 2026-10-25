@@ -1,0 +1,14 @@
+{
+  "name": "Aprova Ita — Agente Administrativo, Câmara de Itanhaém",
+  "short_name": "Aprova Ita",
+  "description": "Estudos para o Concurso nº 01/2026 da Câmara de Itanhaém.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafaf9",
+  "theme_color": "#1d4ed8",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

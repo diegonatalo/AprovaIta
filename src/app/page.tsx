@@ -1,69 +1,58 @@
-import Image from "next/image";
+import Link from "next/link";
+import { NOMES_AREA, PROVA } from "../../config/prova";
+import { SITE } from "../../config/site";
+import { AREAS, listarTopicos } from "@/lib/content";
+import { Countdown, ProgressoGeral } from "@/components/HomeWidgets";
 
 export default function Home() {
+  const topicos = listarTopicos();
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="space-y-8">
+      <section>
+        <p className="text-sm font-semibold text-acento">{SITE.nome}</p>
+        <h1 className="text-2xl font-bold">Agente Administrativo — Câmara de Itanhaém</h1>
+        <p className="text-sm text-muted">
+          Concurso nº 01/2026 · {PROVA.banca} · prova em 06/12/2026
+        </p>
+      </section>
+
+      <section className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-borda bg-card p-4">
+          <h2 className="mb-1 text-sm font-semibold text-muted">Faltam para a prova</h2>
+          <Countdown alvoISO={PROVA.dataProva} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="rounded-xl border border-borda bg-card p-4">
+          <h2 className="mb-2 text-sm font-semibold text-muted">Progresso geral</h2>
+          <ProgressoGeral chaves={topicos.map((t) => `${t.area}/${t.slug}`)} />
         </div>
-      </main>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-lg font-bold">Áreas</h2>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {AREAS.map((a) => (
+            <Link
+              key={a}
+              href={`/conteudo/${a}/`}
+              className="rounded-xl border border-borda bg-card p-4 hover:border-acento"
+            >
+              <p className="font-semibold">{NOMES_AREA[a]}</p>
+              <p className="text-sm text-muted">
+                {PROVA.distribuicao[a]} questões · {topicos.filter((t) => t.area === a).length} tópico(s) escritos
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="flex flex-wrap gap-3">
+        <Link href="/simulado/" className="rounded-lg bg-acento px-4 py-2 text-sm font-semibold text-background">
+          Simulados
+        </Link>
+        <Link href="/revisao/" className="rounded-lg border border-borda px-4 py-2 text-sm">
+          Caderno de erros
+        </Link>
+      </section>
     </div>
   );
 }
