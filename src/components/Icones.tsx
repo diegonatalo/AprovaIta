@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import { useId, type SVGProps } from "react";
 
 export type NomeIcone =
   | "casa"
@@ -73,15 +73,17 @@ export function Icone({ nome, className = "h-5 w-5", ...resto }: { nome: NomeIco
 
 /** Marca do app: quadrado do mar com sol e um "check" de aprovação. */
 export function Logo({ tamanho = 36 }: { tamanho?: number }) {
+  // id único: a marca aparece duas vezes (topo mobile e lateral desktop) e um deles fica oculto
+  const gradiente = useId();
   return (
     <svg viewBox="0 0 64 64" width={tamanho} height={tamanho} aria-hidden="true" className="shrink-0">
       <defs>
-        <linearGradient id="logo-mar" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gradiente} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#0f8396" />
           <stop offset="1" stopColor="#0a3a4f" />
         </linearGradient>
       </defs>
-      <rect width="64" height="64" rx="16" fill="url(#logo-mar)" />
+      <rect width="64" height="64" rx="16" fill={`url(#${gradiente})`} />
       <circle cx="46" cy="18" r="6" fill="#ff8a63" />
       <path d="m16 33 10 10 22-22" fill="none" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M8 52c6-4 10-4 16 0s10 4 16 0 10-4 16 0" fill="none" stroke="#ffffff55" strokeWidth="3" strokeLinecap="round" />
