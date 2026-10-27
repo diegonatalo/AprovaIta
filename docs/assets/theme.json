@@ -1,0 +1,10 @@
+{
+  "bg": "#06151d", "card": "#0c2230", "border": "#1a3544", "borderStrong": "#2a4a5c",
+  "fg": "#e6eef0", "muted": "#8da3ad", "subtle": "#6f8b97",
+  "accent": "#4cd0c4", "accent2": "#ff8a63", "onAccent": "#04201f",
+  "fontSans": "'Figtree','Segoe UI',-apple-system,Helvetica,Arial,sans-serif",
+  "fontDisplay": "'Bricolage Grotesque','Figtree','Segoe UI',-apple-system,Helvetica,Arial,sans-serif",
+  "fontMono": "Menlo,Consolas,'SFMono-Regular',monospace",
+  "radiusScale": 1.0,
+  "glow": true, "grid": true, "animations": true
+}

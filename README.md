@@ -1,11 +1,11 @@
 <div align="center">
 
-<img src="public/icon.svg" alt="Logo do Aprova Ita: um check branco sobre fundo verde-petróleo, com um sol coral e uma onda" width="84" height="84" />
+<img src="docs/assets/banner.svg" alt="Aprova Ita. Estude para a Câmara de Itanhaém direto do celular." width="100%" />
 
-# Aprova Ita
+<br />
 
-**Estude para a Câmara de Itanhaém direto do celular.**<br />
-Explicações objetivas, questões comentadas, simulados cronometrados e um caderno que lembra o que você errou.
+<a href="https://aprovaita.vercel.app/"><img src="docs/assets/btn-demo.svg" alt="Demonstração ↗" height="46" /></a>
+<a href="https://github.com/diegonatalo/AprovaIta"><img src="docs/assets/btn-code.svg" alt="Código ↗" height="46" /></a>
 
 <br />
 
@@ -17,78 +17,86 @@ Explicações objetivas, questões comentadas, simulados cronometrados e um cade
 
 <br />
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/principal-dark.png" />
-  <img src="docs/screenshots/principal-light.png" alt="Tela inicial do Aprova Ita: contagem regressiva para a prova, progresso geral e áreas de estudo" width="860" />
-</picture>
+<img src="docs/assets/h-sobre.svg" alt="01 · SOBRE: Sobre o projeto" width="100%" />
 
-<sub>Capturas com progresso fictício, só para demonstração.</sub>
+<br />
+
+<img src="public/icon.svg" alt="Logo do Aprova Ita: um check branco sobre fundo verde-petróleo, com um sol coral e uma onda" width="84" height="84" />
 
 </div>
+
+Explicações objetivas, questões comentadas, simulados cronometrados e um caderno que lembra o que você errou.
 
 Site de estudos para o **Concurso nº 01/2026 da Câmara Municipal de Itanhaém**
 (cargo Agente Administrativo, banca VUNESP, prova em 06/12/2026).
 São 40 questões: 8 de Português, 5 de Matemática, 3 de Legislação Municipal e 24 de Conhecimentos Específicos.
 
-## ✨ O que dá para fazer
+<div align="center">
 
-| Recurso | Descrição |
-|---|---|
-| **Estudar por área** | 47 tópicos em Português, Matemática, Legislação e Específicos, cada um com explicação e questões. |
-| **Quiz por tópico** | Quiz A com questões autorais e Quiz B com questões reais da VUNESP, com gabarito comentado. |
-| **Simulados** | Prova de 40 questões com cronômetro de 3h, pausa, marcação para revisar e folha de respostas. |
-| **Nota como no edital** | Acertos × 100 ÷ 40, com aviso de habilitação (nota mínima 50). |
-| **Caderno de erros** | Tudo o que você errou fica guardado. Acertou ao refazer? A questão sai do caderno. |
-| **Progresso** | Tópicos vistos e dominados, desempenho por área, pontos fracos e próximo passo sugerido. |
-| **Contagem regressiva** | Quantos dias faltam para a prova, na tela inicial. |
-| **Tema claro e escuro** | Segue o tema do aparelho e dá para trocar na hora. |
+<br />
 
-## 🖼️ Telas
+<img src="docs/assets/h-demo.svg" alt="02 · DEMO: Telas" width="100%" />
 
-<table>
-  <tr>
-    <td width="50%"><img src="docs/screenshots/estudar.png" alt="Lista de tópicos de Língua Portuguesa com o status de cada um: dominado, visto ou não visto" /><br /><sub><b>Estudar</b>: os tópicos de cada área, com o seu status.</sub></td>
-    <td width="50%"><img src="docs/screenshots/progresso.png" alt="Painel de progresso com próximo passo sugerido e desempenho por área" /><br /><sub><b>Progresso</b>: desempenho por área e o próximo passo sugerido.</sub></td>
-  </tr>
-  <tr>
-    <td width="50%" align="center"><img src="docs/screenshots/topico.png" alt="Página de um tópico no celular, com botões para marcar como visto ou dominado" width="260" /><br /><sub><b>Tópico no celular</b>: explicação objetiva, com a barra de abas embaixo.</sub></td>
-    <td width="50%" align="center"><img src="docs/screenshots/simulado.png" alt="Simulado no celular com cronômetro, questão e alternativas" width="260" /><br /><sub><b>Simulado</b>: cronômetro, questão e alternativas ao alcance do polegar.</sub></td>
-  </tr>
-</table>
+<br />
 
-## 🔒 Seus dados
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/shot-principal-dark.svg" />
+  <img src="docs/assets/shot-principal-light.svg" alt="Tela inicial do Aprova Ita: contagem regressiva para a prova, progresso geral e áreas de estudo" width="100%" />
+</picture>
 
-Não há conta nem servidor. Seu progresso, os simulados e o caderno de erros ficam no
-`localStorage` do navegador. Depois da primeira visita, o site também abre sem internet.
+<sub>Capturas com progresso fictício, só para demonstração.</sub>
 
-Para trocar de aparelho ou não perder nada ao limpar o navegador, use **Progresso → Backup**:
-exporte um arquivo JSON e importe no outro lugar.
+<br />
 
-## 🧠 Como funciona
+<img src="docs/assets/shot-estudar.svg" alt="Lista de tópicos de Língua Portuguesa com o status de cada um: dominado, visto ou não visto" width="100%" />
 
-| Conceito | Regra |
-|---|---|
-| **Nota** | `acertos × 100 ÷ 40`. Habilitado com nota igual ou maior que 50 (20 acertos). |
-| **Simulado completo** | 40 questões na proporção da prova. Prefere questões que você ainda não fez. |
-| **Simulado reduzido** | Se o banco não cobre algum grupo, o simulado sai menor e a nota **não** é comparável ao corte. |
-| **Cronômetro** | Calculado pelo relógio, então não perde tempo se a aba ficar em segundo plano. |
-| **Prova em andamento** | Fica salva. Você pode recarregar a página e retomar de onde parou. |
+<sub><b>Estudar</b>: os tópicos de cada área, com o seu status.</sub>
 
-## 📚 Sobre o conteúdo
+<br />
 
-> [!NOTE]
-> O conteúdo foi produzido com apoio de IA e **não substitui o edital nem as normas oficiais**.
-> Confira os pontos marcados com `VERIFICAR` antes de decorar.
+<img src="docs/assets/shot-progresso.svg" alt="Painel de progresso com próximo passo sugerido e desempenho por área" width="100%" />
 
-- **Questões da banca** só entram quando vêm de provas reais da VUNESP e têm fonte. Os gabaritos usados
-  são os preliminares; mudanças após recursos não foram conferidas.
-- **Questões autorais** são identificadas como tal na tela.
-- **Legislação municipal:** ainda não há questões reais da banca para esse grupo.
-- **Divisão dos 24 Específicos** entre Administração Geral (10), Arquivologia (6) e Administração Pública (8)
-  é uma suposição, porque o edital não informa. Ela fica em `config/prova.ts` e pode ser mudada.
-- Alguns tópicos estão marcados como "fora do programa do edital" e ficam sinalizados no site.
+<sub><b>Progresso</b>: desempenho por área e o próximo passo sugerido.</sub>
 
-## 🚀 Rodando localmente
+<br />
+
+<img src="docs/assets/shot-celular.svg" alt="Página de um tópico no celular, com botões para marcar como visto ou dominado, e simulado no celular com cronômetro, questão e alternativas" width="100%" />
+
+<sub><b>Tópico no celular</b>: explicação objetiva, com a barra de abas embaixo. <b>Simulado</b>: cronômetro, questão e alternativas ao alcance do polegar.</sub>
+
+<br /><br />
+
+<img src="docs/assets/h-funcionalidades.svg" alt="03 · FUNCIONALIDADES: O que dá para fazer" width="100%" />
+
+<br />
+
+<img src="docs/assets/f-01.svg" alt="Funcionalidade 01: Estudar por área. 47 tópicos em Português, Matemática, Legislação e Específicos, cada um com explicação e questões." width="49%" />
+<img src="docs/assets/f-02.svg" alt="Funcionalidade 02: Quiz por tópico. Quiz A com questões autorais e Quiz B com questões reais da VUNESP, com gabarito comentado." width="49%" />
+<br />
+<img src="docs/assets/f-03.svg" alt="Funcionalidade 03: Simulados. Prova de 40 questões com cronômetro de 3h, pausa, marcação para revisar e folha de respostas." width="49%" />
+<img src="docs/assets/f-04.svg" alt="Funcionalidade 04: Nota como no edital. Acertos × 100 ÷ 40, com aviso de habilitação (nota mínima 50)." width="49%" />
+<br />
+<img src="docs/assets/f-05.svg" alt="Funcionalidade 05: Caderno de erros. Tudo o que você errou fica guardado. Acertou ao refazer? A questão sai do caderno." width="49%" />
+<img src="docs/assets/f-06.svg" alt="Funcionalidade 06: Progresso. Tópicos vistos e dominados, desempenho por área, pontos fracos e próximo passo sugerido." width="49%" />
+<br />
+<img src="docs/assets/f-07.svg" alt="Funcionalidade 07: Contagem regressiva. Quantos dias faltam para a prova, na tela inicial." width="49%" />
+<img src="docs/assets/f-08.svg" alt="Funcionalidade 08: Tema claro e escuro. Segue o tema do aparelho e dá para trocar na hora." width="49%" />
+
+<br /><br />
+
+<img src="docs/assets/h-stack.svg" alt="04 · STACK: Stack" width="100%" />
+
+<br />
+
+<img src="docs/assets/stack.svg" alt="Stack: Next.js 16, React 19, TypeScript, Tailwind CSS 4, react-markdown, remark-gfm, gray-matter, tsx, ESLint" width="100%" />
+
+<br /><br />
+
+<img src="docs/assets/h-rodar.svg" alt="05 · COMO RODAR: Rodando localmente" width="100%" />
+
+</div>
+
+<br />
 
 Requer [Node.js](https://nodejs.org) e npm.
 
@@ -107,7 +115,15 @@ npm run dev        # http://localhost:3000
 | `npm run validate` | Confere o conteúdo: fontes, gabaritos e alternativas (`validate:strict` trata avisos como erros) |
 | `npm run test:motor` | Testa a correção e a montagem dos simulados |
 
-## 🗂️ Estrutura
+<div align="center">
+
+<br />
+
+<img src="docs/assets/h-estrutura.svg" alt="06 · ESTRUTURA: Estrutura" width="100%" />
+
+</div>
+
+<br />
 
 ```text
 src/
@@ -121,6 +137,48 @@ public/           ícone, manifest e service worker
 docs/             capturas de tela usadas neste README
 ```
 
+<div align="center">
+
+<br />
+
+<img src="docs/assets/h-mais.svg" alt="07 · MAIS: Mais informações" width="100%" />
+
+</div>
+
+<br />
+
+### 🔒 Seus dados
+
+Não há conta nem servidor. Seu progresso, os simulados e o caderno de erros ficam no
+`localStorage` do navegador. Depois da primeira visita, o site também abre sem internet.
+
+Para trocar de aparelho ou não perder nada ao limpar o navegador, use **Progresso → Backup**:
+exporte um arquivo JSON e importe no outro lugar.
+
+### 🧠 Como funciona
+
+| Conceito | Regra |
+|---|---|
+| **Nota** | `acertos × 100 ÷ 40`. Habilitado com nota igual ou maior que 50 (20 acertos). |
+| **Simulado completo** | 40 questões na proporção da prova. Prefere questões que você ainda não fez. |
+| **Simulado reduzido** | Se o banco não cobre algum grupo, o simulado sai menor e a nota **não** é comparável ao corte. |
+| **Cronômetro** | Calculado pelo relógio, então não perde tempo se a aba ficar em segundo plano. |
+| **Prova em andamento** | Fica salva. Você pode recarregar a página e retomar de onde parou. |
+
+### 📚 Sobre o conteúdo
+
+> [!NOTE]
+> O conteúdo foi produzido com apoio de IA e **não substitui o edital nem as normas oficiais**.
+> Confira os pontos marcados com `VERIFICAR` antes de decorar.
+
+- **Questões da banca** só entram quando vêm de provas reais da VUNESP e têm fonte. Os gabaritos usados
+  são os preliminares; mudanças após recursos não foram conferidas.
+- **Questões autorais** são identificadas como tal na tela.
+- **Legislação municipal:** ainda não há questões reais da banca para esse grupo.
+- **Divisão dos 24 Específicos** entre Administração Geral (10), Arquivologia (6) e Administração Pública (8)
+  é uma suposição, porque o edital não informa. Ela fica em `config/prova.ts` e pode ser mudada.
+- Alguns tópicos estão marcados como "fora do programa do edital" e ficam sinalizados no site.
+
 <details>
 <summary><b>Como adicionar um tópico</b></summary>
 
@@ -131,12 +189,12 @@ docs/             capturas de tela usadas neste README
 
 </details>
 
-## 🌐 Deploy
+### 🌐 Deploy
 
 O site é 100% estático (`output: "export"`), então roda em qualquer hospedagem, como a Vercel.
 Ao publicar, ajuste o endereço em `config/site.ts`: ele alimenta o `sitemap.xml`, o `robots.txt` e os metadados.
 
-## 🧭 Próximos passos
+### 🧭 Próximos passos
 
 - [ ] Questões reais da banca para Legislação Municipal (falta prova de Câmara que cubra o tema).
 - [ ] Conferir se houve mudança de gabarito após recursos nas provas usadas.
@@ -144,8 +202,22 @@ Ao publicar, ajuste o endereço em `config/site.ts`: ele alimenta o `sitemap.xml
 - [ ] Definir o endereço público e atualizar `config/site.ts`.
 - [ ] Testes automatizados da interface (hoje só há validação do conteúdo e teste do motor).
 
+<div align="center">
+
 <br />
 
-<div align="center">
-  <sub>Feito com 💚 para quem estuda no ônibus, na fila e na hora do almoço.</sub>
+<img src="docs/assets/h-autor.svg" alt="08 · AUTOR: Autor" width="100%" />
+
+<br />
+
+<a href="https://diegonatalo.dev"><img src="docs/assets/btn-portfolio.svg" alt="Portfólio ↗" height="46" /></a>
+<a href="https://www.linkedin.com/in/diegonatalo/"><img src="docs/assets/btn-linkedin.svg" alt="LinkedIn ↗" height="46" /></a>
+<a href="https://github.com/diegonatalo"><img src="docs/assets/btn-github.svg" alt="GitHub ↗" height="46" /></a>
+
+<br /><br />
+
+<img src="docs/assets/footer.svg" alt="© 2026 Diego Natalo" width="100%" />
+
+<sub>Feito com 💚 para quem estuda no ônibus, na fila e na hora do almoço.</sub>
+
 </div>
