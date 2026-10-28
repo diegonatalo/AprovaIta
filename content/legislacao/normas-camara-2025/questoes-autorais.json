@@ -78,5 +78,37 @@
     ],
     "gabarito": 1,
     "comentario": "Correta: B, conforme os arts. 71 e 77: o auxílio-alimentação é indenização, não tem natureza salarial, não se incorpora à remuneração e é pago proporcionalmente aos dias efetivamente trabalhados."
+  },
+  {
+    "id": "LEG-N-A6",
+    "area": "legislacao",
+    "topicoSlug": "normas-camara-2025",
+    "origem": "autoral",
+    "enunciado": "Nos termos da Resolução nº 525/2025 da Câmara Municipal de Itanhaém, a Controladoria, órgão de controle interno subordinado à Presidência, conta com",
+    "alternativas": [
+      "1 Controlador Interno (Função de Confiança), 1 Auxiliar Administrativo (Cargo Efetivo) e 1 Agente Administrativo (Cargo Efetivo).",
+      "2 Controladores Internos (Cargo em Comissão) e 1 Agente Administrativo (Cargo Efetivo).",
+      "1 Controlador Interno (Cargo Efetivo) e 2 Assessores Jurídicos (Cargo em Comissão).",
+      "1 Diretor de Controle (Função de Confiança) e 3 Agentes Administrativos (Cargo Efetivo).",
+      "1 Controlador Interno (Função de Confiança), apenas, sem outros servidores."
+    ],
+    "gabarito": 0,
+    "comentario": "Correta: A, conforme o art. 43 da Res. 525/2025. Cuidado: a LC 252/2025 extinguiu o cargo de Controlador Interno (art. 94), mas a Res. 525 o prevê como função de confiança. O Auxiliar Administrativo é cargo extinto na vacância (LC 252, art. 93)."
+  },
+  {
+    "id": "LEG-N-A7",
+    "area": "legislacao",
+    "topicoSlug": "normas-camara-2025",
+    "origem": "autoral",
+    "enunciado": "Segundo a Resolução nº 525/2025 da Câmara Municipal de Itanhaém, a Procuradoria Jurídica tem a seguinte composição:",
+    "alternativas": [
+      "2 Procuradores Jurídicos e 1 Agente Administrativo, todos cargos efetivos.",
+      "1 Procurador Jurídico (Cargo em Comissão) e 2 Agentes Administrativos (Cargo Efetivo).",
+      "2 Assessores Jurídicos (Cargo em Comissão) e 2 Analistas Legislativos (Cargo Efetivo).",
+      "3 Procuradores Jurídicos (Função de Confiança), sem Agente Administrativo.",
+      "1 Procurador Jurídico e 1 Controlador Interno, ambos cargos efetivos."
+    ],
+    "gabarito": 0,
+    "comentario": "Correta: A, conforme o art. 52. A alternativa C descreve a Assessoria Jurídico-Legislativa (art. 54), que tem 2 Assessores Jurídicos em comissão, 2 Analistas Legislativos e 1 Agente Administrativo efetivos."
   }
 ]

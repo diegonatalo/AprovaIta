@@ -126,5 +126,37 @@
     ],
     "gabarito": 3,
     "comentario": "Correta: D, conforme o art. 19: a recusa, o não atendimento em 15 dias ou a prestação de informação falsa importa em crime de responsabilidade."
+  },
+  {
+    "id": "LEG-O-A9",
+    "area": "legislacao",
+    "topicoSlug": "lei-organica-itanhaem",
+    "origem": "autoral",
+    "enunciado": "De acordo com a Lei Orgânica do Município de Itanhaém, ficam declarados feriados municipais os dias",
+    "alternativas": [
+      "22 de abril, data da fundação da cidade, e 8 de dezembro, dia de Nossa Senhora da Conceição de Itanhaém.",
+      "8 de dezembro, data da fundação da cidade, e 22 de abril, dia de Nossa Senhora da Conceição de Itanhaém.",
+      "1º de janeiro, data da instalação da Câmara, e 22 de abril, data da fundação da cidade.",
+      "22 de abril, data da fundação da cidade, e 15 de agosto, dia da Padroeira do Município.",
+      "8 de dezembro e 25 de dezembro, ambos em homenagem à Padroeira do Município."
+    ],
+    "gabarito": 0,
+    "comentario": "Correta: A, conforme o art. 181, § 2º: 22 de abril (fundação da cidade) e 8 de dezembro (Nossa Senhora da Conceição de Itanhaém, Padroeira do Município). A alternativa B troca as datas. Os demais feriados locais dependem de lei municipal e não podem exceder 4 (§ 3º)."
+  },
+  {
+    "id": "LEG-O-A10",
+    "area": "legislacao",
+    "topicoSlug": "lei-organica-itanhaem",
+    "origem": "autoral",
+    "enunciado": "Segundo a Lei Orgânica do Município de Itanhaém, a educação das populações indígenas será ministrada em língua portuguesa, assegurada às comunidades indígenas a utilização de",
+    "alternativas": [
+      "somente textos oficiais traduzidos pelo Município.",
+      "suas línguas maternas e processos próprios de aprendizagem, com respeito a seus direitos, interesses, crenças e tradições.",
+      "línguas estrangeiras escolhidas pela Secretaria de Educação, em substituição à língua portuguesa.",
+      "currículo único estabelecido pelo Prefeito, sem consulta às comunidades.",
+      "processos próprios de aprendizagem, desde que dispensada a língua portuguesa."
+    ],
+    "gabarito": 1,
+    "comentario": "Correta: B, conforme o art. 180 (EC 61/1997). A educação é em língua portuguesa, mas se assegura o uso das línguas maternas e dos processos próprios de aprendizagem, respeitados direitos, interesses, crenças e tradições."
   }
 ]
